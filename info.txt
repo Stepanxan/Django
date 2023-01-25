@@ -1,0 +1,37 @@
+встановлення джанго
+     pip install django
+Міграція
+створення міграції:
+    python3 manage.py makemigrations
+Зробити міграцію:
+    python3 manage.py migrate
+Робота з django
+Запуск сервера:
+    python3 manage.py runserver
+Створення нового об'єкту (пакету даних)(news - назва об'єкту)
+    python3 manage.py startapp news
+Створення адміна
+    python3 manage.py createsuperuser
+дальше вводимо логін (для цього сайту логін admin)
+після цього вводимо пароль (для цього сайту пароль 123456)
+
+встановлення docker
+	sudo apt install docker
+
+встановлення docker-compose
+	sudo apt install docker-compose
+
+запустити докер
+	sudo docker-compose up --build
+
+зайти в контейнер (app) - назва контойнеру
+	sudo docker-compose exec app bash
+	або
+	sudo docker exec -it app-web bash
+подивитись які порти зайняті
+	sudo netstat -tulpn
+
+зміна прав доступу на дерикторію до БД в докері (щоб видалити або змінити)
+	sudo chmod -R 0777 *
+видалити всі контейнери і почистити докер
+	sudo docker system prune -a

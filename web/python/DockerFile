@@ -1,0 +1,17 @@
+FROM python:3.10.9-bullseye
+
+WORKDIR ./application
+
+RUN apt-get update && apt-get install -y python3-pip python3
+
+RUN pip install django
+
+COPY ./requirements.txt /application/requirements.txt
+
+RUN pip install -r requirements.txt
+
+COPY ./blog/manage.py /manage.py
+
+COPY ./wait-for-it.sh /application/wait-for-it.sh
+
+CMD ./wait-for-it.sh mysql:3306 -- python3 ./blog/manage.py
